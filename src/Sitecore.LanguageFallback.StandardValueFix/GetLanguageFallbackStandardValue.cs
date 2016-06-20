@@ -26,8 +26,8 @@ namespace Sitecore.LanguageFallback.StandardValueFix
                 return;
             }
 
-            
-            // If we have a FallbackItem, we want the StandardValue to be also in the fallback language
+            // If we have a FallbackItem, we want the standard value to be also in the fallback language
+            // (Code taken from Sitecore.Pipelines.GetFieldValue.GetLanguageFallbackValue)
             LanguageFallbackFieldValue languageFallbackValue = LanguageFallbackFieldValuesManager.GetLanguageFallbackValue(args.Field, true);
             if (languageFallbackValue.Value != null)
             {
