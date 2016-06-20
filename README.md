@@ -4,9 +4,9 @@ This project provides an alternative processor to retrieve standard values. The 
 
 ## Building
 
-* Place your `Sitecore.Kernel.dll` file in the lib directory.
+* Place your `Sitecore.Kernel.dll` file in the lib\Sitecore directory
 
-* Build the solution.
+* Build the solution
 
 ## Usage
 
