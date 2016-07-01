@@ -1,6 +1,18 @@
 # Sitecore.LanguageFallback.StandardValueFix
 
-This project provides an alternative processor to retrieve standard values. The processor will utilize the LanguageFallbackFieldValuesManager for fallback items to make sure that the standard values are also in the fallback language.
+This project tries to fix Sitecores behaviour of retrieving standard values in the given language in case of item language fallback.
+
+In the current Sitecore version retrieving a fallback item can lead to mixed-language content because sitecore returns the standard values always in the passed language instead of the fallback language
+
+## How it works
+
+We simply replace the default StandardValuesProvider with our own implementation that uses item.OriginalLanguage instead of item.Language. We also have to use our own implementation of the StandardValuesCache, because otherwise the cache key is still using item.Langugae
+
+This behaviour is based on the following assumptions:
+* Item Level fallback should never lead to mixed-language content
+* If item language fallback is deactivated, item.OriginalLanguage is always identical to item.Language
+* If an item is not a fallback variant, item.OriginalLanguage is always identical to item.Language
+* If an item is the fallback variant, OriginalLanguage should be taken to determine the standard value
 
 ## Building
 
