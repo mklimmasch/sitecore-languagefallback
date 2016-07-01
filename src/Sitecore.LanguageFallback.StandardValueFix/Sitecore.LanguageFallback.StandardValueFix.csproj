@@ -45,12 +45,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GetLanguageFallbackStandardValue.cs" />
+    <Compile Include="FixedStandardValuesCache.cs" />
+    <Compile Include="FixedStandardValuesProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App_Config\Include\ZZ_LanguageFallback\ActivateItemLevelFallback.config" />
-    <None Include="App_Config\Include\ZZ_LanguageFallback\FixLanguageFallbackStandardValues.config" />
+    <None Include="App_Config\Include\ZZ_LanguageFallback\FixLanguageFallbackStandardValues.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
