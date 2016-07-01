@@ -2,6 +2,8 @@
 
 This project tries to fix Sitecores behaviour of retrieving standard values in the given language in case of item language fallback.
 
+**This is not thoroughly tested, so use at your own risk!**
+
 In the current Sitecore version retrieving a fallback item can lead to mixed-language content because sitecore returns the standard values always in the passed language instead of the fallback language
 
 ## How it works
