@@ -8,7 +8,7 @@ In the current Sitecore version retrieving a fallback item can lead to mixed-lan
 
 ## How it works
 
-We simply replace the default StandardValuesProvider with our own implementation that uses item.OriginalLanguage instead of item.Language. We also have to use our own implementation of the StandardValuesCache, because otherwise the cache key is still using item.Langugae
+We simply replace the default *StandardValuesProvider* with our own implementation that uses *item.OriginalLanguage* instead of *item.Language*. We also have to use our own implementation of the *StandardValuesCache*, because otherwise the cache key is still using *item.Language*.
 
 This behaviour is based on the following assumptions:
 * Item Level fallback should never lead to mixed-language content
