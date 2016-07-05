@@ -5,3 +5,5 @@
 /lib/Sitecore/Sitecore.Kernel.dll
 /src/Sitecore.LanguageFallback.StandardValueFix/bin/Debug
 /src/Sitecore.LanguageFallback.StandardValueFix/obj/Debug
+/src/Sitecore.LanguageFallback.StandardValueFix/obj/Release
+/src/Sitecore.LanguageFallback.StandardValueFix/bin/Release

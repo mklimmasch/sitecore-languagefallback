@@ -46,7 +46,8 @@ namespace Sitecore.LanguageFallback.StandardValueFix
             if (Caches.TryGetValue(database, out cache))
                 return cache;
 
-            cache = new FixedStandardValuesCache(database, database.Caches.StandardValuesCache.InnerCache.MaxSize);
+            var maxCacheSize = database?.Caches?.StandardValuesCache?.InnerCache?.MaxSize ?? StringUtil.ParseSizeString("2MB");
+            cache = new FixedStandardValuesCache(database, maxCacheSize);
             Caches.Add(database, cache);
             return cache;
         }
