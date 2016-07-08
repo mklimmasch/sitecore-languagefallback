@@ -8,7 +8,6 @@ using Sitecore.Data.Managers;
 using Sitecore.Data.Templates;
 using Sitecore.Globalization;
 using Sitecore.SecurityModel;
-using System.Collections.Generic;
 
 namespace Sitecore.LanguageFallback.StandardValueFix
 {
@@ -24,12 +23,12 @@ namespace Sitecore.LanguageFallback.StandardValueFix
     public class FixedStandardValuesProvider : StandardValuesProvider
     {
         #region private properties
-        private Dictionary<Database, FixedStandardValuesCache> Caches;
+        private SafeDictionary<Database, FixedStandardValuesCache> Caches;
         #endregion
 
         #region Constructors
         public FixedStandardValuesProvider() : base() {
-            Caches = new Dictionary<Database, FixedStandardValuesCache>();
+            Caches = new SafeDictionary<Database, FixedStandardValuesCache>();
         }
         #endregion
 
