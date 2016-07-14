@@ -24,6 +24,7 @@ namespace Sitecore.LanguageFallback.StandardValueFix
     {
         #region private properties
         private SafeDictionary<Database, FixedStandardValuesCache> Caches;
+        private static object _cacheLock = new object();
         #endregion
 
         #region Constructors
@@ -46,8 +47,12 @@ namespace Sitecore.LanguageFallback.StandardValueFix
                 return cache;
 
             var maxCacheSize = database?.Caches?.StandardValuesCache?.InnerCache?.MaxSize ?? StringUtil.ParseSizeString("2MB");
-            cache = new FixedStandardValuesCache(database, maxCacheSize);
-            Caches.Add(database, cache);
+
+            lock (_cacheLock)
+            {
+                cache = new FixedStandardValuesCache(database, maxCacheSize);
+                Caches.Add(database, cache);
+            }
             return cache;
         }
 
