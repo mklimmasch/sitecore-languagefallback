@@ -23,8 +23,8 @@ namespace Sitecore.LanguageFallback.StandardValueFix
     public class FixedStandardValuesProvider : StandardValuesProvider
     {
         #region private properties
-        private SafeDictionary<Database, FixedStandardValuesCache> Caches;
-        private static object _cacheLock = new object();
+        private volatile SafeDictionary<Database, FixedStandardValuesCache> Caches;
+        private object _cacheLock = new object();
         #endregion
 
         #region Constructors
