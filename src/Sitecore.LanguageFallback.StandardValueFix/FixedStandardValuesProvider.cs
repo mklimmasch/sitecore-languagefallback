@@ -42,14 +42,22 @@ namespace Sitecore.LanguageFallback.StandardValueFix
         /// <returns>an instance of FixedStandardValuesCache</returns>
         private FixedStandardValuesCache GetCache(Database database)
         {
+            // Try to get the cache
             FixedStandardValuesCache cache;
             if (Caches.TryGetValue(database, out cache))
                 return cache;
 
+            // If the cache does not exist, create it. Start by reading the cache size or use default value
             var maxCacheSize = database?.Caches?.StandardValuesCache?.InnerCache?.MaxSize ?? StringUtil.ParseSizeString("2MB");
 
+            // Lock. Multiple threads could try to add the cache. This could lead to hash collisions
             lock (_cacheLock)
             {
+                // Check again - while locked - whether the key i sin the dictionary
+                if (Caches.TryGetValue(database, out cache))
+                    return cache;
+
+                // If not, instantiate and add
                 cache = new FixedStandardValuesCache(database, maxCacheSize);
                 Caches.Add(database, cache);
             }
