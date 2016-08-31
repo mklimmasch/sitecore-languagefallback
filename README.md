@@ -16,12 +16,6 @@ This behaviour is based on the following assumptions:
 * If an item is not a fallback variant, item.OriginalLanguage is always identical to item.Language
 * If an item is the fallback variant, OriginalLanguage should be taken to determine the standard value
 
-## Building
-
-* Place your `Sitecore.Kernel.dll` file in the lib\Sitecore directory
-
-* Build the solution
-
 ## Usage
 
 * Drop the file `Sitecore.LanguageFallback.StandardValueFix.dll` into the bin directory of your sitecore installation
